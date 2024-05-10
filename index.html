@@ -11,11 +11,24 @@
       <h1>JavaScript Quiz</h1>
     </header>
     <main>
-
-
-
-
-        
+        <!-- Creating a start screen for the user -->
+        <section id="startScreen">
+            <h2>Welcome to the Quiz!</h2>
+            <button id="startBtn">Start Quiz</button>
+          </section>
+          <section id="quizScreen" class="hide">
+            <div id="timer">Time: <span id="time-left"></span></div>
+            <div id="question"></div>
+            <div id="answers"></div>
+          </section>
+        <!-- Then comes the end screen -->
+          <section id="gameOverScreen" class="hide">
+            <h2>Game Over!</h2> 
+            <p>Your final score is: <span id="finalScore"></span></p>
+            <label for="initials">Enter your initials:</label>
+            <input type="text" id="initials" maxlength="3">
+            <button id="submitScoreBtn">Submit Score</button>
+          </section>
     </main>
   </div>
   <script src="/The java/script.js"></script> <!--Linking my JavaScript-->
