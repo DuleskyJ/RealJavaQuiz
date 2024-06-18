@@ -1,16 +1,19 @@
 // Creating my const values 
 const qContainer = document.querySelector('.container');
-const start = document.getElementById('start-screen');
-const quiz = document.getElementById('quiz-screen');
-const gameOver = document.getElementById('game-over-screen');
+const startScreen = document.getElementById('start-screen');
+const quizScreen = document.getElementById('quiz-screen');
+const gameOverScreen = document.getElementById('game-over-screen');
 const startBtn = document.getElementById('start-btn');
 const timeLeftDisplay = document.getElementById('time-left');
-const qDisplay = document.getElementById('question');
-const aDisplay = document.getElementById('answers');
+const questionDisplay = document.getElementById('question');
+const answersDisplay = document.getElementById('answers');
+const finalScoreElement = document.getElementById('final-score');
+const submitScoreBtn = document.getElementById('submit-score-btn');
 
 // Creating variables 
 let currentQuestionIndex = 0;
 let timeLeft = 60; // Quiz time limit
+let timerInterval;
 
 // Questions array 
 const questions = [
@@ -24,12 +27,12 @@ const questions = [
     answers: ["21!", "  ", "Computer Style Sheets"],
     correctAnswer: "Cascading Style Sheets"
   },
-  // Add Qs here
+  // Add more questions here
 ];
 
 // Creating a timer function
 function startTimer() {
-  const timerInterval = setInterval(function() {
+  timerInterval = setInterval(function() {
     timeLeft--;
     timeLeftDisplay.textContent = timeLeft;
 
@@ -75,13 +78,11 @@ function checkAnswer(event) {
   const currentQuestion = questions[currentQuestionIndex];
 
   if (selectedAnswer === currentQuestion.correctAnswer) {
-    // Correct 
-    // 
+    // Correct
   } else {
-    // Incorrect 
+    // Incorrect
     timeLeft -= 10; // TAKE 10 SECONDS AWAY FOR BEING BAD!
     timeLeftDisplay.textContent = timeLeft;
-    console.log("no, you stupid!")
   }
 
   currentQuestionIndex++;
@@ -97,6 +98,24 @@ function endQuiz() {
   quizScreen.classList.add('hide');
   gameOverScreen.classList.remove('hide');
   clearInterval(timerInterval); // Stop timer
-  // 
+  finalScoreElement.textContent = timeLeft;
 }
 
+// Add event listener for submit score button
+submitScoreBtn.addEventListener('click', function() {
+  const initials = document.getElementById('initials').value;
+  if (initials) {
+    saveScore(initials, timeLeft);
+  }
+});
+
+// Function to save the score
+function saveScore(initials, score) {
+  const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+  const newScore = { initials, score };
+  highScores.push(newScore);
+  highScores.sort((a, b) => b.score - a.score);
+  highScores.splice(5); // Keep only top 5 scores
+  localStorage.setItem('highScores', JSON.stringify(highScores));
+  alert('Score saved!');
+}
