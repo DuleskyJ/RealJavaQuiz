@@ -26,11 +26,18 @@ body {
 header {
     width: 100%;
     background-color: #ffc0cb;
-    background-image: linear-gradient(white 10%, transparent 10%, transparent 20%, white 20%, white 30%, transparent 30%, transparent 40%, white 40%, white 50%, transparent 50%, transparent 60%, white 60%, white 70%, transparent 70%, transparent 80%, white 80%, white 90%, transparent 90%);
-    color: black;
-    padding: 20px 40px; 
-    text-align: center;
+    color: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box; 
+}
+
+header h1 {
+    font-family: 'Danfo', serif; 
+    font-size: 6em;
+    margin: 0; 
 }
 
 main {
