@@ -1,7 +1,7 @@
 # JavaScript Quiz
 
 ## Description
-Hi! I am Jaden Dulesky tackling on JavaScript fundamentals to create a quiz just about that.It'll be able to save your scores so you can gauge your progess amongst friends!
+Hi! I am Jaden D. tackling on JavaScript fundamentals to create a quiz just about that.It'll be able to save your scores so you can gauge your progess amongst friends!
 
 ## Installation
 1. Clone the repository.
