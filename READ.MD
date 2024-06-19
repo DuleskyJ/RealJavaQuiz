@@ -14,7 +14,14 @@ Hi! I am Jaden D. tackling on JavaScript fundamentals to create a quiz just abou
 4. (optional) Press "Try again" on the top left of the end page to restart. 
 
 ## Screenshot
-![JavaScript Quiz Screenshot]()
+Main Page:
+https://github.com/DuleskyJ/RealJavaQuiz/issues/1#issue-2361495749
+
+Q&A Page:
+https://github.com/DuleskyJ/RealJavaQuiz/issues/2#issue-2361497409
+
+End Page:
+https://github.com/DuleskyJ/RealJavaQuiz/issues/3#issue-2361497969
 
 ## Deployed Application
 [Link to deployed application]()
