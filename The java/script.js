@@ -9,6 +9,7 @@ const questionDisplay = document.getElementById('question');
 const answersDisplay = document.getElementById('answers');
 const finalScoreElement = document.getElementById('final-score');
 const submitScoreBtn = document.getElementById('submit-score-btn');
+const scoreForm = document.getElementById('score-form');
 
 // Creating variables 
 let currentQuestionIndex = 0;
@@ -99,10 +100,12 @@ function endQuiz() {
   gameOverScreen.classList.remove('hide');
   clearInterval(timerInterval); // Stop timer
   finalScoreElement.textContent = timeLeft;
+  gameOverScreen.style.display = 'block'; // Disable display: flex and use block to fix shrink issue
 }
 
 // Add event listener for submit score button
-submitScoreBtn.addEventListener('click', function() {
+scoreForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
   const initials = document.getElementById('initials').value;
   if (initials) {
     saveScore(initials, timeLeft);
