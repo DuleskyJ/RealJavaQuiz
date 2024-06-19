@@ -49,7 +49,6 @@ const questions = [
     answers: ["<js>", "<javascript>", "<script>"],
     correctAnswer: "<script>"
   }
-  // Add more questions here
 ];
 
 // Creating a timer function
@@ -100,18 +99,17 @@ function checkAnswer(event) {
   const currentQuestion = questions[currentQuestionIndex];
 
   if (selectedAnswer === currentQuestion.correctAnswer) {
-    // Correct
+    // Correct answer
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      displayQuestion();
+    } else {
+      endQuiz();
+    }
   } else {
-    // Incorrect
-    timeLeft -= 5; // TAKE 5 SECONDS AWAY FOR BEING BAD!
+    // Incorrect answer
+    timeLeft -= 5; // TAKE 5 SECONDS AWAY FOR BEING WRONG!
     timeLeftDisplay.textContent = timeLeft;
-  }
-
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    displayQuestion();
-  } else {
-    endQuiz();
   }
 }
 
