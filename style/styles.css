@@ -88,7 +88,6 @@ input[type="text"] {
     text-align: center;
 }
 
-/* This polka-dot effect was made with help from OpenAI's ChatGPT */
 #start-screen {
     background-color: white;
     color: #2d0f3a;
@@ -115,6 +114,7 @@ input[type="text"] {
     left: 0;
     width: 100%;
     height: 100%;
+    /* This polka-dot effect was provided with help from OpenAI's ChatGPT */
     background-image: radial-gradient(circle, #ffc0cb 10%, transparent 10%), radial-gradient(circle, #ffc0cb 10%, transparent 10%);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
@@ -181,4 +181,20 @@ input[type="text"] {
 
 #try-again-btn:hover {
     background-color: #f395a3;
+}
+
+.answer-btn {
+    width: 100%; 
+    max-width: 300px; 
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 10px 0; 
+    background-color: #ffc0cb; 
+    color: white; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.answer-btn:hover {
+    background-color: #f395a3; 
 }

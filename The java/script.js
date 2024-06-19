@@ -4,14 +4,14 @@ const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
 const gameOverScreen = document.getElementById('game-over-screen');
 const startBtn = document.getElementById('start-btn');
-const tryAgainBtn = document.getElementById('try-again-btn'); // New Try Again button
+const tryAgainBtn = document.getElementById('try-again-btn');
 const timeLeftDisplay = document.getElementById('time-left');
 const questionDisplay = document.getElementById('question');
 const answersDisplay = document.getElementById('answers');
 const finalScoreElement = document.getElementById('final-score');
 const submitScoreBtn = document.getElementById('submit-score-btn');
 const scoreForm = document.getElementById('score-form');
-const scoreDisplay = document.getElementById('score-display'); // New element for displaying scores
+const scoreDisplay = document.getElementById('score-display');
 
 // Creating variables 
 let currentQuestionIndex = 0;
@@ -22,7 +22,7 @@ let timerInterval;
 const questions = [
   {
     question: "Which symbol is used for comments in Javascript?",
-    answers: ["// Double Slash", "<!-- This Syntax --!>", "Quotations\""],
+    answers: ["// Double Slash", "<!-- This Syntax --!>", "\"Quotations\""],
     correctAnswer: "// Double Slash",
   },
   {
@@ -91,7 +91,7 @@ function startQuiz() {
   startScreen.classList.add('hide');
   quizScreen.classList.remove('hide');
   gameOverScreen.classList.add('hide');
-  gameOverScreen.style.display = ''; // Remove inline style
+  gameOverScreen.style.display = ''; // Removes inline style
   startTimer();
   displayQuestion();
 }
