@@ -15,12 +15,13 @@ body {
     height: 80%;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 header {
@@ -49,6 +50,7 @@ main {
     align-items: center;
     font-family: "Lobster", sans-serif;
     font-size: 4em;
+    position: relative;
 }
 
 #timer {
@@ -60,17 +62,17 @@ main {
 }
 
 button {
+    background-color: #2d0f3a;
     margin: 10px 0;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    color: #ffc0cb;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #50131c;
 }
 
 form {
@@ -93,7 +95,7 @@ input[type="text"] {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    width: 100%; 
+    width: 100%;
 }
 
 #start-screen h2 {
@@ -124,18 +126,18 @@ input[type="text"] {
 #start-screen button {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2em;
-    margin: 20px auto 0 auto; 
+    margin: 20px auto 0 auto;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #ffc0cb;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: block; 
+    display: block;
 }
 
 #start-screen button:hover {
-    background-color: #45a049;
+    background-color: #f395a3;
 }
 
 #quiz-screen,
@@ -150,4 +152,16 @@ input[type="text"] {
 #quiz-screen.hide,
 #game-over-screen.hide {
     display: none;
+}
+
+#score-display {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

@@ -10,6 +10,7 @@ const answersDisplay = document.getElementById('answers');
 const finalScoreElement = document.getElementById('final-score');
 const submitScoreBtn = document.getElementById('submit-score-btn');
 const scoreForm = document.getElementById('score-form');
+const scoreDisplay = document.getElementById('score-display'); // New element for displaying scores
 
 // Creating variables 
 let currentQuestionIndex = 0;
@@ -25,9 +26,29 @@ const questions = [
   },
   {
     question: "What would be the result of this intense math equation 9+10+\"21\"?",
-    answers: ["21!", "  ", "Computer Style Sheets"],
-    correctAnswer: "Cascading Style Sheets"
+    answers: ["21!", "1921", "40"],
+    correctAnswer: "1921"
   },
+  {
+    question: "What is the correct syntax for referring to an external script called 'script.js'?",
+    answers: ["<script href='script.js'>", "<script src='script.js'>", "<script ref='script.js'>"],
+    correctAnswer: "<script src='script.js'>"
+  },
+  {
+    question: "Which built-in method removes the last element from an array and returns that element?",
+    answers: ["last()", "get()", "pop()"],
+    correctAnswer: "pop()"
+  },
+  {
+    question: "Which company developed JavaScript?",
+    answers: ["Netscape", "Microsoft", "Sun Microsystems"],
+    correctAnswer: "Netscape"
+  },
+  {
+    question: "Inside which HTML element do we put the JavaScript?",
+    answers: ["<js>", "<javascript>", "<script>"],
+    correctAnswer: "<script>"
+  }
   // Add more questions here
 ];
 
@@ -82,7 +103,7 @@ function checkAnswer(event) {
     // Correct
   } else {
     // Incorrect
-    timeLeft -= 10; // TAKE 10 SECONDS AWAY FOR BEING BAD!
+    timeLeft -= 5; // TAKE 5 SECONDS AWAY FOR BEING BAD!
     timeLeftDisplay.textContent = timeLeft;
   }
 
@@ -100,7 +121,7 @@ function endQuiz() {
   gameOverScreen.classList.remove('hide');
   clearInterval(timerInterval); // Stop timer
   finalScoreElement.textContent = timeLeft;
-  gameOverScreen.style.display = 'block'; // Disable display: flex and use block to fix shrink issue
+  gameOverScreen.style.display = 'block'; // Disable display: flex and use block
 }
 
 // Add event listener for submit score button
@@ -109,6 +130,7 @@ scoreForm.addEventListener('submit', function(event) {
   const initials = document.getElementById('initials').value;
   if (initials) {
     saveScore(initials, timeLeft);
+    updateScoreDisplay(initials, timeLeft); // Update score display
   }
 });
 
@@ -121,4 +143,12 @@ function saveScore(initials, score) {
   highScores.splice(5); // Keep only top 5 scores
   localStorage.setItem('highScores', JSON.stringify(highScores));
   alert('Score saved!');
+}
+
+// Function to update the score display
+function updateScoreDisplay(initials, score) {
+  const scoreEntry = document.createElement('div');
+  scoreEntry.textContent = `${initials}: ${score}`;
+  scoreDisplay.appendChild(scoreEntry);
+  scoreDisplay.classList.remove('hide'); // Show the score display container
 }
