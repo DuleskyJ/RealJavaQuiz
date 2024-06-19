@@ -15,13 +15,13 @@ Hi! I am Jaden D. tackling on JavaScript fundamentals to create a quiz just abou
 
 ## Screenshot
 Main Page:
-https://github.com/DuleskyJ/RealJavaQuiz/issues/1#issue-2361495749
+![Screenshot (44)](https://github.com/DuleskyJ/RealJavaQuiz/assets/153566037/3d3cfaba-b093-49f4-9f79-12026cfb051d)
 
 Q&A Page:
-https://github.com/DuleskyJ/RealJavaQuiz/issues/2#issue-2361497409
+![Screenshot (41)](https://github.com/DuleskyJ/RealJavaQuiz/assets/153566037/188690db-f561-455a-b2fb-9d815452f257)
 
 End Page:
-https://github.com/DuleskyJ/RealJavaQuiz/issues/3#issue-2361497969
+![Screenshot (43)](https://github.com/DuleskyJ/RealJavaQuiz/assets/153566037/9b79e0f5-6b63-4f3f-ab69-e3d16044968d)
 
 ## Deployed Application
 [Link to deployed application]()
