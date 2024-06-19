@@ -4,6 +4,7 @@ const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
 const gameOverScreen = document.getElementById('game-over-screen');
 const startBtn = document.getElementById('start-btn');
+const tryAgainBtn = document.getElementById('try-again-btn'); // New Try Again button
 const timeLeftDisplay = document.getElementById('time-left');
 const questionDisplay = document.getElementById('question');
 const answersDisplay = document.getElementById('answers');
@@ -48,6 +49,21 @@ const questions = [
     question: "Inside which HTML element do we put the JavaScript?",
     answers: ["<js>", "<javascript>", "<script>"],
     correctAnswer: "<script>"
+  },
+  {
+    question: "What is the output of the following code: console.log(typeof NaN);",
+    answers: ["string", "number", "object"],
+    correctAnswer: "number"
+  },
+  {
+    question: "Which JavaScript method is used to write HTML output?",
+    answers: ["document.write()", "document.output()", "document.createElement()"],
+    correctAnswer: "document.write()"
+  },
+  {
+    question: "Which of the following is a JavaScript data type?",
+    answers: ["float", "number", "decimal"],
+    correctAnswer: "number"
   }
 ];
 
@@ -67,10 +83,15 @@ function startTimer() {
 // Event listener for start button click
 startBtn.addEventListener('click', startQuiz);
 
+// Event listener for try again button click
+tryAgainBtn.addEventListener('click', resetQuiz);
+
 // Start Quiz Function
 function startQuiz() {
   startScreen.classList.add('hide');
   quizScreen.classList.remove('hide');
+  gameOverScreen.classList.add('hide');
+  gameOverScreen.style.display = ''; // Remove inline style
   startTimer();
   displayQuestion();
 }
@@ -122,13 +143,26 @@ function endQuiz() {
   gameOverScreen.style.display = 'block'; // Disable display: flex and use block
 }
 
+// Function to reset the quiz
+function resetQuiz() {
+  gameOverScreen.classList.add('hide');
+  startScreen.classList.remove('hide');
+  quizScreen.classList.add('hide'); // Ensure quiz screen is hidden
+  gameOverScreen.style.display = ''; // Remove inline style
+  currentQuestionIndex = 0;
+  timeLeft = 60;
+  timeLeftDisplay.textContent = timeLeft;
+  questionDisplay.textContent = '';
+  answersDisplay.innerHTML = '';
+}
+
 // Add event listener for submit score button
 scoreForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission
   const initials = document.getElementById('initials').value;
   if (initials) {
     saveScore(initials, timeLeft);
-    updateScoreDisplay(initials, timeLeft); // Update score display
+    updateScoreDisplay(initials, timeLeft); 
   }
 });
 
